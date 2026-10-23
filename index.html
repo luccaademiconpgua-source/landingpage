@@ -111,6 +111,12 @@ section.bloco.claro{background:var(--creme)}
 @media (max-width:900px){.compara{grid-template-columns:minmax(0,1fr)}}
 .nota{font-size:12.5px;color:var(--muted);margin-top:18px;max-width:80ch}
 
+/* Chamada brasileiros no exterior */
+section.faixa-ext{padding-block:0}
+.faixa-ext-in{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:linear-gradient(90deg,rgba(255,255,255,.97) 30%,rgba(255,255,255,.75)),url(img/exterior-m.webp) center/cover;border:1px solid var(--line);border-radius:22px;padding:clamp(24px,4vw,44px);margin-block:56px}
+.faixa-ext h2{font-size:clamp(22px,2.8vw,32px);color:var(--bordo);margin:8px 0 8px;max-width:26ch}
+.faixa-ext p{margin:0;color:var(--muted);max-width:56ch}
+
 /* Patrimônio */
 .patrimonio{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .pat{position:relative;margin:0;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--line)}
@@ -359,6 +365,17 @@ legend .n{width:28px;height:28px;border-radius:50%;background:var(--bordo);color
   </div>
 </section>
 
+<section class="bloco faixa-ext" aria-labelledby="t-ext">
+  <div class="wrap"><div class="faixa-ext-in">
+    <div>
+      <div class="eyebrow">Mora fora do Brasil?</div>
+      <h2 id="t-ext">Seu imóvel no Brasil, sem juros, simulado na sua moeda</h2>
+      <p>Veja quanto fica a parcela em dólar, euro ou libra e compare com o financiamento do banco. Atendimento 100% online.</p>
+    </div>
+    <a class="btn btn-ouro" href="brasileiros-no-exterior/">Simular para quem mora fora</a>
+  </div></div>
+</section>
+
 <section class="bloco" aria-labelledby="t-acomp">
   <div class="wrap acomp">
     <div class="titulo" style="margin-bottom:0">
@@ -554,6 +571,7 @@ legend .n{width:28px;height:28px;border-radius:50%;background:var(--bordo);color
         <li><a href="#metodo">Método</a></li>
         <li><a href="#solucoes">Soluções</a></li>
         <li><a href="#simulador">Simulador</a></li>
+        <li><a href="brasileiros-no-exterior/">Brasileiros no exterior</a></li>
         <li><a href="blog/">Blog</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#diagnostico">Diagnóstico gratuito</a></li>

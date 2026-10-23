@@ -96,6 +96,7 @@ def rodape(P, home=False):
         <li><a href="{a('metodo')}">Método</a></li>
         <li><a href="{a('solucoes')}">Soluções</a></li>
         <li><a href="{'#simulador' if home else P + 'simulador/'}">Simulador</a></li>
+        <li><a href="{P}brasileiros-no-exterior/">Brasileiros no exterior</a></li>
         <li><a href="{P}blog/">Blog</a></li>
         <li><a href="{a('sobre')}">Sobre</a></li>
         <li><a href="{a('diagnostico')}">Diagnóstico gratuito</a></li>
@@ -123,7 +124,7 @@ def rodape(P, home=False):
 </footer>"""
 
 
-def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow, max-image-preview:large", imagem=None):
+def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow, max-image-preview:large", imagem=None, extra_head=""):
     return f"""<!DOCTYPE html>
 <!-- © 2026 A&R Assessoria Estratégica Ltda. (ARVIA Capital). Todos os direitos reservados. Lei nº 9.609/1998 e Lei nº 9.610/1998. -->
 <html lang="pt-BR">
@@ -143,7 +144,7 @@ def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow,
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
 <link rel="stylesheet" href="{P}assets/site.css?v={VERSAO}">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-</head>
+{extra_head}</head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 """
@@ -153,10 +154,10 @@ def fim(P):
     return f'\n<script src="{P}assets/site.js?v={VERSAO}" defer></script>\n</body>\n</html>\n'
 
 
-def pagina(titulo, descricao, caminho, ld, atual, conteudo, tipo="website", robots="index, follow, max-image-preview:large", P=None, imagem=None):
+def pagina(titulo, descricao, caminho, ld, atual, conteudo, tipo="website", robots="index, follow, max-image-preview:large", P=None, imagem=None, extra_head="", extra_fim=""):
     if P is None:
         P = "../" * caminho.count("/")
-    return cabeca(titulo, descricao, BASE + caminho, ld, P, tipo, robots, imagem) + topo(P, atual) + "\n" + conteudo + "\n" + rodape(P) + fim(P)
+    return cabeca(titulo, descricao, BASE + caminho, ld, P, tipo, robots, imagem, extra_head) + topo(P, atual) + "\n" + conteudo + "\n" + rodape(P) + extra_fim + fim(P)
 
 
 def migalhas(*itens):
@@ -260,6 +261,22 @@ def pagina_simulador():
                   "simulador/", ld, "simulador", conteudo)
 
 
+def pagina_exterior():
+    E = RAIZ / "ferramentas" / "especiais"
+    css = (E / "exterior.css").read_text(encoding="utf-8")
+    js = (E / "exterior.js").read_text(encoding="utf-8")
+    conteudo = (E / "exterior.html").read_text(encoding="utf-8")
+    perguntas = re.findall(r"<summary>(.*?)</summary><p>(.*?)</p>", conteudo)
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebPage", "name": "Consórcio para brasileiros no exterior", "url": BASE + "brasileiros-no-exterior/", "inLanguage": "pt-BR", "publisher": EMPRESA_LD},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in perguntas]},
+        migalhas(("Início", ""), ("Brasileiros no exterior", "brasileiros-no-exterior/"))]}
+    return pagina("Consórcio para brasileiros no exterior · Imóvel no Brasil sem juros · ARVIA Capital",
+                  "Mora fora? Simule a parcela do consórcio em dólar, euro ou libra e compare com o financiamento. Imóvel no Brasil sem juros, com atendimento 100% online.",
+                  "brasileiros-no-exterior/", ld, "exterior", conteudo,
+                  extra_head=f"<style>{css}</style>\n", extra_fim=f"\n<script>{js}</script>")
+
+
 def pagina_fixa(meta):
     slug = meta["slug"]
     P = "../"
@@ -333,7 +350,7 @@ def atualizar_home(posts):
 
 def sitemap(posts):
     hoje = datetime.date.today().isoformat()
-    urls = [(BASE, hoje, "1.0"), (BASE + "simulador/", hoje, "0.8"), (BASE + "blog/", hoje, "0.8"),
+    urls = [(BASE, hoje, "1.0"), (BASE + "simulador/", hoje, "0.8"), (BASE + "brasileiros-no-exterior/", hoje, "0.9"), (BASE + "blog/", hoje, "0.8"),
             (BASE + "contato/", hoje, "0.6"), (BASE + "links/", hoje, "0.5"),
             (BASE + "privacidade/", hoje, "0.3"), (BASE + "termos/", hoje, "0.3"), (BASE + "cookies/", hoje, "0.3")]
     urls += [(f"{BASE}blog/{p['slug']}/", p.get("atualizado", p["data"]), "0.7") for p in posts]
@@ -353,6 +370,7 @@ def main():
     for p in posts:
         escrever(f"blog/{p['slug']}/index.html", pagina_post(p, posts))
     escrever("simulador/index.html", pagina_simulador())
+    escrever("brasileiros-no-exterior/index.html", pagina_exterior())
     for f in sorted(PAGINAS.glob("*.html")):
         meta = ler_fonte(f)
         escrever(f"{meta['slug']}/index.html", pagina_fixa(meta))

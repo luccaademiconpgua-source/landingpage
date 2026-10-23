@@ -21,3 +21,4 @@ Recortadas e comprimidas para o site. Para trocar uma foto, substitua o arquivo 
 | blog/consorcio-ou-financiamento-imobiliario | https://www.pexels.com/photo/7578939/ |
 | blog/lance-embutido | https://www.pexels.com/photo/8292880/ |
 | blog/fui-contemplado-no-consorcio | https://www.pexels.com/photo/8293778/ |
+| exterior.webp, exterior-m.webp | https://www.pexels.com/photo/351283/ |
