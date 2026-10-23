@@ -37,7 +37,7 @@ def ler_posts():
 
 CSS = """
 :root{--bordo:#4A0D18;--bordo-abs:#25070D;--bordo-mid:#6B1626;--ouro:#C6A04A;--ouro-hi:#E1C16A;--ouro-ink:#7A5A12;--off:#F5F1E8;--papel:#fff;--ink:#1A1214;--muted:#5E504B;--line:#E5DCCB;--creme:#FBF8F1;
---display:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;--body:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;--gut:max(20px,env(safe-area-inset-left,0px));--gutr:max(20px,env(safe-area-inset-right,0px))}
+--display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;--body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;--gut:max(20px,env(safe-area-inset-left,0px));--gutr:max(20px,env(safe-area-inset-right,0px))}
 *{box-sizing:border-box}html{background:var(--bordo-abs)}body{margin:0;background:var(--off);color:var(--ink);font:17px/1.75 var(--body)}
 a{color:var(--bordo)}:focus-visible{outline:3px solid var(--ouro-hi);outline-offset:3px}
 .wrap{max-width:1160px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
@@ -50,10 +50,10 @@ a{color:var(--bordo)}:focus-visible{outline:3px solid var(--ouro-hi);outline-off
 .menu .btn{margin-left:6px}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;font:600 14.5px/1 var(--body);text-decoration:none;background:linear-gradient(180deg,var(--ouro-hi),var(--ouro));color:var(--bordo-abs)!important}
 @media (max-width:760px){.menu a:not(.btn){display:none}}
-h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.2;letter-spacing:-.015em;text-wrap:balance;color:var(--bordo)}
+h1,h2,h3{font-variation-settings:'wdth' 106;font-family:var(--display);font-weight:700;line-height:1.2;letter-spacing:-.015em;text-wrap:balance;color:var(--bordo)}
 .trilha{font-size:13px;color:var(--muted);padding-top:28px}.trilha a{color:var(--muted)}
 .cab{max-width:760px;padding-block:14px 8px}
-.cat{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--ouro-ink)}
+.cat{font-variation-settings:'wdth' 80;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--ouro-ink)}
 .cab h1{font-size:clamp(26px,3.8vw,40px);margin:10px 0 14px}
 .meta{font-size:13.5px;color:var(--muted);display:flex;gap:6px 14px;flex-wrap:wrap}
 article.post{max-width:760px;padding-bottom:30px}
@@ -95,7 +95,7 @@ def cabeca(titulo, descricao, url, extra_ld, tipo="article", fundo=""):
 <meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}og.png"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="ARVIA Capital">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
 <script type="application/ld+json">{json.dumps(extra_ld, ensure_ascii=False)}</script>
 <style>{CSS}</style>
 </head>
