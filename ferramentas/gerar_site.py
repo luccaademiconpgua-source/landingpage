@@ -49,6 +49,7 @@ def ler_posts():
         p["corpo"] = p["corpo"].replace('<div class="tabela">', '<div class="tabela" tabindex="0" role="region" aria-label="Tabela comparativa">')
         palavras = len(re.sub(r"<[^>]+>", " ", p["corpo"]).split())
         p["leitura"] = max(1, round(palavras / 200))
+        p["capa"] = (RAIZ / "img" / "blog" / f"{p['slug']}.webp").exists()
         posts.append(p)
     posts.sort(key=lambda p: p["data"], reverse=True)
     return posts
@@ -121,7 +122,7 @@ def rodape(P, home=False):
 </footer>"""
 
 
-def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow, max-image-preview:large"):
+def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow, max-image-preview:large", imagem=None):
     return f"""<!DOCTYPE html>
 <!-- © 2026 A&R Assessoria Estratégica Ltda. (ARVIA Capital). Todos os direitos reservados. Lei nº 9.609/1998 e Lei nº 9.610/1998. -->
 <html lang="pt-BR">
@@ -132,10 +133,10 @@ def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow,
 <meta name="description" content="{ESC(descricao)}">
 <link rel="canonical" href="{url}">
 <meta name="robots" content="{robots}">
-<meta name="theme-color" content="#25070D">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" type="image/png" href="{P}icon.png"><link rel="apple-touch-icon" href="{P}icon.png">
 <meta property="og:type" content="{tipo}"><meta property="og:title" content="{ESC(titulo)}"><meta property="og:description" content="{ESC(descricao)}">
-<meta property="og:url" content="{url}"><meta property="og:image" content="{BASE}og.png"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="ARVIA Capital">
+<meta property="og:url" content="{url}"><meta property="og:image" content="{imagem or BASE + 'og.png'}"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="ARVIA Capital">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
@@ -151,10 +152,10 @@ def fim(P):
     return f'\n<script src="{P}assets/site.js?v={VERSAO}" defer></script>\n</body>\n</html>\n'
 
 
-def pagina(titulo, descricao, caminho, ld, atual, conteudo, tipo="website", robots="index, follow, max-image-preview:large", P=None):
+def pagina(titulo, descricao, caminho, ld, atual, conteudo, tipo="website", robots="index, follow, max-image-preview:large", P=None, imagem=None):
     if P is None:
         P = "../" * caminho.count("/")
-    return cabeca(titulo, descricao, BASE + caminho, ld, P, tipo, robots) + topo(P, atual) + "\n" + conteudo + "\n" + rodape(P) + fim(P)
+    return cabeca(titulo, descricao, BASE + caminho, ld, P, tipo, robots, imagem) + topo(P, atual) + "\n" + conteudo + "\n" + rodape(P) + fim(P)
 
 
 def migalhas(*itens):
@@ -178,7 +179,8 @@ EMPRESA_LD = {"@type": "Organization", "@id": BASE + "#empresa", "name": "ARVIA 
 
 
 def cartoes(posts, P, nivel="h2"):
-    return "".join(f"""<a class="card" href="{P}blog/{p['slug']}/"><span class="cat">{ESC(p['categoria'])}</span><{nivel}>{ESC(p['titulo'])}</{nivel}><p>{ESC(p['resumo'])}</p><span class="mais">Ler matéria · {p['leitura']} min</span></a>""" for p in posts)
+    capa = lambda p: f'<img class="capa" src="{P}img/blog/{p["slug"]}.webp" alt="" width="1200" height="630" loading="lazy" decoding="async">' if p.get("capa") else ""
+    return "".join(f"""<a class="card" href="{P}blog/{p['slug']}/">{capa(p)}<span class="cat">{ESC(p['categoria'])}</span><{nivel}>{ESC(p['titulo'])}</{nivel}><p>{ESC(p['resumo'])}</p><span class="mais">Ler matéria · {p['leitura']} min</span></a>""" for p in posts)
 
 
 # ---------- páginas ----------
@@ -186,10 +188,11 @@ def cartoes(posts, P, nivel="h2"):
 def pagina_post(p, posts):
     caminho = f"blog/{p['slug']}/"
     url = BASE + caminho
+    imagem = f"{BASE}img/blog/{p['slug']}.jpg" if p.get("capa") else BASE + "og.png"
     P = "../../"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BlogPosting", "headline": p["titulo"], "description": p["descricao"], "datePublished": p["data"], "dateModified": p.get("atualizado", p["data"]),
-         "author": AUTOR_LD, "publisher": EMPRESA_LD, "mainEntityOfPage": url, "image": BASE + "og.png", "inLanguage": "pt-BR", "articleSection": p["categoria"]},
+         "author": AUTOR_LD, "publisher": EMPRESA_LD, "mainEntityOfPage": url, "image": imagem, "inLanguage": "pt-BR", "articleSection": p["categoria"]},
         migalhas(("Início", ""), ("Blog", "blog/"), (p["titulo"], caminho))]}
     faq = ""
     if p.get("faq"):
@@ -205,6 +208,7 @@ def pagina_post(p, posts):
   <div class="lado">
     <div>
       <article class="post">
+        {f'<figure class="capa-post"><img src="{P}img/blog/{p["slug"]}.webp" alt="" width="1200" height="630" decoding="async"></figure>' if p.get("capa") else ""}
         {p['corpo']}
         {faq}
       </article>
@@ -215,7 +219,7 @@ def pagina_post(p, posts):
   {rel}
 </div>
 </main>"""
-    return pagina(p["titulo_seo"], p["descricao"], caminho, ld, "blog", conteudo, "article", P=P)
+    return pagina(p["titulo_seo"], p["descricao"], caminho, ld, "blog", conteudo, "article", P=P, imagem=imagem)
 
 
 def pagina_lista(posts):
@@ -259,7 +263,8 @@ def pagina_fixa(meta):
     slug = meta["slug"]
     P = "../"
     corpo = re.sub(r"^\s*<h1>.*?</h1>\s*", "", meta["corpo"], flags=re.S)
-    corpo = corpo.replace('<div class="tabela">', '<div class="tabela" tabindex="0" role="region" aria-label="Tabela">')
+    _n = iter(range(1, 50))
+    corpo = re.sub(r'<div class="tabela">', lambda m: f'<div class="tabela" tabindex="0" role="region" aria-label="Tabela {next(_n)}">', corpo)
     h1 = re.search(r"<h1>(.*?)</h1>", meta["corpo"], re.S).group(1)
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "ContactPage" if slug == "contato" else "WebPage", "name": meta["titulo"], "url": BASE + slug + "/", "inLanguage": "pt-BR", "publisher": EMPRESA_LD},
