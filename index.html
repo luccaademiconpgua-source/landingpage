@@ -29,7 +29,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: página única. Faixa escura de abertura com a tese; seções claras alternadas; diagnóstico como peça central; rodapé escuro. */
 :root{
@@ -37,7 +37,7 @@
   --ouro:#C6A04A; --ouro-hi:#E1C16A; --ouro-ink:#7A5A12;
   --off:#F5F1E8; --papel:#FFFFFF; --ink:#1A1214; --muted:#5E504B; --line:#E5DCCB; --creme:#FBF8F1;
   --erro:#A93226;
-  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --display:"Cinzel", Georgia, "Times New Roman", serif;
   --body:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --gut:max(20px, env(safe-area-inset-left, 0px));
   --gutr:max(20px, env(safe-area-inset-right, 0px));
@@ -52,7 +52,7 @@ a{color:inherit}
 .wrap{max-width:1160px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--ouro);color:var(--bordo-abs);padding:8px 14px;border-radius:8px;z-index:100;font-weight:600}
 .skip:focus{left:12px}
-h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;letter-spacing:.02em;text-wrap:balance;margin:0}
 .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--ouro-ink)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font:600 15px/1 var(--body);text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .15s, box-shadow .15s, background .15s}
 .btn-ouro{background:linear-gradient(180deg,var(--ouro-hi),var(--ouro));color:var(--bordo-abs);box-shadow:0 10px 28px rgba(198,160,74,.28)}
@@ -68,7 +68,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:b
 .marca{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--off)}
 .losango{width:34px;height:34px;border:1px solid var(--ouro);display:grid;place-items:center;transform:rotate(45deg);flex:none}
 .losango span{transform:rotate(-45deg);font-family:var(--display);font-size:19px;color:var(--ouro-hi)}
-.marca b{font-family:var(--display);font-size:23px;letter-spacing:.2em;display:block;line-height:1}
+.marca b{font-family:var(--display);font-size:21px;letter-spacing:.18em;display:block;line-height:1}
 .marca small{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ouro-hi)}
 .menu{display:flex;gap:4px;align-items:center}
 .menu a{color:rgba(245,241,232,.86);text-decoration:none;font-size:13.5px;font-weight:500;padding:8px 12px;border-radius:8px}
@@ -80,8 +80,8 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:b
 .abertura{background:radial-gradient(1100px 520px at 80% -10%, rgba(107,22,38,.75), transparent 60%),radial-gradient(900px 600px at -10% 40%, rgba(74,13,24,.8), transparent 60%),var(--bordo-abs);color:var(--off);overflow:hidden}
 .abertura .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:48px;align-items:center;padding-block:76px 84px}
 .abertura .eyebrow{color:var(--ouro-hi)}
-.abertura h1{font-size:clamp(40px,6.2vw,74px);margin:16px 0 20px;letter-spacing:-.01em}
-.abertura h1 em{font-style:italic;color:var(--ouro-hi)}
+.abertura h1{font-size:clamp(30px,4.6vw,54px);margin:16px 0 22px;letter-spacing:.02em}
+.abertura h1 em{font-style:normal;color:var(--ouro-hi)}
 .abertura p.lead{font-size:clamp(16px,1.7vw,18.5px);color:rgba(245,241,232,.84);max-width:56ch;margin:0 0 30px}
 .acoes{display:flex;gap:12px;flex-wrap:wrap}
 .selo{margin-top:26px;font-size:12.5px;color:rgba(245,241,232,.7)}
@@ -91,7 +91,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:b
 .escada h2{font-size:15px;font-family:var(--body);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro-hi);margin-bottom:18px}
 .degraus{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .degraus li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
-.degraus .n{width:44px;height:44px;border-radius:50%;border:1px solid var(--ouro);display:grid;place-items:center;font-family:var(--display);font-size:22px;color:var(--ouro-hi)}
+.degraus .n{width:44px;height:44px;border-radius:50%;border:1px solid var(--ouro);display:grid;place-items:center;font-family:var(--display);font-size:18px;color:var(--ouro-hi)}
 .degraus b{display:block;font-size:15px;color:var(--off)}
 .degraus span{font-size:13.5px;color:rgba(245,241,232,.72)}
 .degraus li:nth-child(2){margin-left:14px}.degraus li:nth-child(3){margin-left:28px}.degraus li:nth-child(4){margin-left:42px}
@@ -101,7 +101,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;text-wrap:b
 section.bloco{padding-block:84px}
 section.bloco.claro{background:var(--papel)}
 .titulo{max-width:760px;margin-bottom:40px}
-.titulo h2{font-size:clamp(32px,4.4vw,50px);color:var(--bordo);margin:10px 0 12px}
+.titulo h2{font-size:clamp(25px,3.3vw,38px);color:var(--bordo);margin:10px 0 12px}
 .titulo p{color:var(--muted);margin:0;max-width:62ch}
 @media (max-width:640px){section.bloco{padding-block:60px}}
 
@@ -109,7 +109,7 @@ section.bloco.claro{background:var(--papel)}
 .compara{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .compara article{background:var(--papel);border:1px solid var(--line);border-radius:16px;padding:24px}
 .compara article.destaque{background:var(--bordo-abs);color:var(--off);border-color:var(--bordo-abs)}
-.compara h3{font-size:26px;color:var(--bordo);margin-bottom:6px}
+.compara h3{font-size:21px;color:var(--bordo);margin-bottom:6px}
 .compara .destaque h3{color:var(--ouro-hi)}
 .compara .sub{font-size:13px;color:var(--muted);margin:0 0 14px}
 .compara .destaque .sub{color:rgba(245,241,232,.7)}
@@ -122,7 +122,7 @@ section.bloco.claro{background:var(--papel)}
 .sol{background:var(--creme);border:1px solid var(--line);border-radius:16px;padding:24px 22px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .sol .ico{width:46px;height:46px;border-radius:12px;background:var(--bordo);display:grid;place-items:center}
 .sol .ico svg{width:24px;height:24px;stroke:var(--ouro-hi);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.sol h3{font-size:25px;color:var(--bordo)}
+.sol h3{font-size:20px;color:var(--bordo)}
 .sol p{margin:0;font-size:14.5px;color:var(--muted);flex:1}
 .sol a{font-size:14px;font-weight:600;color:var(--bordo);text-decoration:none;border-bottom:1px solid var(--ouro);align-self:flex-start;padding-bottom:2px}
 @media (max-width:1000px){.solucoes{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -140,8 +140,8 @@ section.bloco.claro{background:var(--papel)}
 /* Calculadora */
 .calc{background:var(--bordo-abs);color:var(--off);border-radius:22px;padding:clamp(28px,5vw,52px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:center;position:relative;overflow:hidden}
 .calc::after{content:"";position:absolute;right:-80px;top:-80px;width:300px;height:300px;border:1px solid rgba(198,160,74,.25);transform:rotate(45deg)}
-.calc h2{font-size:clamp(30px,4vw,44px);color:var(--off);margin:10px 0 12px}
-.calc h2 em{color:var(--ouro-hi)}
+.calc h2{font-size:clamp(24px,3vw,34px);color:var(--off);margin:10px 0 12px}
+.calc h2 em{color:var(--ouro-hi);font-style:normal}
 .calc p{color:rgba(245,241,232,.8);margin:0 0 22px;max-width:52ch}
 .calc .eyebrow{color:var(--ouro-hi)}
 .calc ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;position:relative;z-index:1}
@@ -155,7 +155,7 @@ section.bloco.claro{background:var(--papel)}
 .diag-txt ul{padding-left:18px;color:var(--muted);font-size:14.5px;display:grid;gap:6px}
 form.ficha{background:var(--papel);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3.5vw,32px);display:grid;gap:22px;min-width:0}
 fieldset{border:0;margin:0;padding:0;min-width:0;display:grid;gap:14px}
-legend{font-family:var(--display);font-size:24px;font-weight:600;color:var(--bordo);padding:0;margin-bottom:4px;display:flex;gap:10px;align-items:center}
+legend{font-family:var(--display);font-size:19px;font-weight:600;color:var(--bordo);padding:0;margin-bottom:4px;display:flex;gap:10px;align-items:center}
 legend .n{width:28px;height:28px;border-radius:50%;background:var(--bordo);color:var(--ouro-hi);font:600 13px/28px var(--body);text-align:center}
 .campo{display:grid;gap:6px;min-width:0}
 .campo > label,.pergunta{font-size:13.5px;font-weight:600;color:var(--ink)}
@@ -187,7 +187,7 @@ legend .n{width:28px;height:28px;border-radius:50%;background:var(--bordo);color
 .retrato{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-width:420px;width:100%}
 .retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
 .retrato::after{content:"";position:absolute;inset:12px;border:1px solid rgba(225,193,106,.7);border-radius:12px;pointer-events:none}
-.sobre h2{font-size:clamp(34px,4.4vw,50px);color:var(--bordo);margin:10px 0 14px}
+.sobre h2{font-size:clamp(28px,3.6vw,40px);color:var(--bordo);margin:10px 0 14px}
 .sobre p{color:var(--muted);max-width:60ch}
 .redes{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .redes a{font-size:14px;font-weight:600;text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--bordo);background:var(--papel)}
@@ -197,7 +197,7 @@ legend .n{width:28px;height:28px;border-radius:50%;background:var(--bordo);color
 /* Dúvidas */
 .faq{display:grid;gap:10px;max-width:860px}
 .faq details{background:var(--papel);border:1px solid var(--line);border-radius:12px;padding:0 18px}
-.faq summary{cursor:pointer;list-style:none;padding:16px 28px 16px 0;font-weight:600;color:var(--bordo);position:relative}
+.faq summary{cursor:pointer;font-family:var(--body);list-style:none;padding:16px 28px 16px 0;font-weight:600;color:var(--bordo);position:relative}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";position:absolute;right:0;top:12px;font-size:22px;color:var(--ouro-ink)}
 .faq details[open] summary::after{content:"–"}
@@ -206,8 +206,8 @@ legend .n{width:28px;height:28px;border-radius:50%;background:var(--bordo);color
 /* Contato e rodapé */
 .contato{background:var(--bordo);color:var(--off)}
 .contato .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding-block:56px}
-.contato h2{font-size:clamp(30px,4vw,44px);max-width:20ch}
-.contato h2 em{color:var(--ouro-hi)}
+.contato h2{font-size:clamp(24px,3vw,34px);max-width:22ch}
+.contato h2 em{color:var(--ouro-hi);font-style:normal}
 .contato .dados{font-size:14px;color:rgba(245,241,232,.82);margin-top:8px}
 footer.rodape{background:var(--bordo-abs);color:rgba(245,241,232,.78);font-size:12.5px;padding-block:34px calc(34px + env(safe-area-inset-bottom,0px))}
 footer.rodape .wrap{display:grid;gap:14px}
@@ -363,7 +363,7 @@ footer.rodape p{margin:0;max-width:110ch}
   <div class="wrap diag">
     <div class="diag-txt">
       <div class="eyebrow">Diagnóstico gratuito</div>
-      <h2 id="t-diag" style="font-size:clamp(34px,4.4vw,50px);color:var(--bordo);margin:10px 0 14px">Vamos montar o seu plano?</h2>
+      <h2 id="t-diag" style="font-size:clamp(26px,3.4vw,38px);color:var(--bordo);margin:10px 0 14px">Vamos montar o seu plano?</h2>
       <p>Leva menos de 2 minutos. Com as suas respostas, eu chego na primeira conversa com uma estratégia pensada para o seu objetivo, e não com uma tabela genérica.</p>
       <ul>
         <li>Você recebe o meu contato pelo WhatsApp</li>
