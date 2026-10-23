@@ -15,7 +15,7 @@ try{ if(/[?&]embed=1/.test(location.search) || window.self!==window.top) documen
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
 <style>
 /* Layout: app de uma tela. Abas no topo; painel de sliders à esquerda; palco com resultado, gráfico e números à direita (fixo ao rolar). No celular empilha e ganha barra de resultado fixa embaixo. Visual único escuro, bordô e ouro. */
 :root{
@@ -24,7 +24,7 @@ try{ if(/[?&]embed=1/.test(location.search) || window.self!==window.top) documen
   --ink:#F5F1E8; --muted:#B8A69E; --dim:#A08C86; --line:rgba(245,241,232,.09);
   --gold:#C6A04A; --gold-hi:#E1C16A; --wine:#4A0D18; --wine-hi:#6B1626;
   --good:#8CCB9F; --warn:#E7BE63; --bad:#EE9090;
-  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --display:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --body:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 *{box-sizing:border-box}
@@ -42,7 +42,7 @@ body{background:
 .logo{display:flex;align-items:center;gap:12px}
 .mark{width:38px;height:38px;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-size:22px;color:var(--gold-hi);transform:rotate(45deg)}
 .mark span{transform:rotate(-45deg)}
-.logo b{font-family:var(--display);font-size:22px;letter-spacing:.16em;font-weight:600;display:block;line-height:1}
+.logo b{font-family:var(--display);font-size:19px;letter-spacing:.24em;font-weight:700;display:block;line-height:1}
 .logo small{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .top-cta{font-size:12px;color:var(--muted);text-align:right}
 .top-cta strong{display:block;color:var(--ink);font-size:13px}
@@ -50,8 +50,8 @@ body{background:
 /* Hero */
 .hero{padding-block:28px 26px}
 .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(36px,6.4vw,66px);line-height:1;margin:12px 0 14px;text-wrap:balance;max-width:17ch;letter-spacing:-.01em}
-.hero h1 em{font-style:italic;color:var(--gold-hi)}
+.hero h1{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(36px,6.4vw,66px);line-height:1;margin:12px 0 14px;text-wrap:balance;max-width:17ch;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--gold-hi)}
 .hero p{color:var(--muted);max-width:58ch;margin:0}
 
 /* Abas */
@@ -109,7 +109,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 6px rgba(
 .hero-res::before{content:"";position:absolute;right:-120px;top:-120px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(225,193,106,.22)}
 .hero-res::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;border:1px solid rgba(225,193,106,.14)}
 .res-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-hi);font-weight:600}
-.res-big{font-family:var(--display);font-weight:600;font-size:clamp(44px,7.5vw,76px);line-height:1;margin:10px 0 10px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;position:relative;z-index:1}
+.res-big{font-family:var(--display);font-weight:700;font-size:clamp(38px,6.4vw,64px);line-height:1;margin:10px 0 10px;letter-spacing:-.01em;font-variant-numeric:tabular-nums;position:relative;z-index:1}
 .res-big small{font-size:.42em;color:var(--gold-hi);margin-right:6px;vertical-align:.55em;font-weight:500}
 .res-text{margin:0;color:#E2D6C7;max-width:56ch;position:relative;z-index:1}
 .res-text b{color:var(--gold-hi);font-weight:600}
@@ -126,7 +126,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 6px rgba(
 
 .chart-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px 18px 12px}
 .chart-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:6px}
-.chart-head h3,.chart-head h4{margin:0;font-family:var(--display);font-size:22px;font-weight:600}
+.chart-head h3,.chart-head h4{margin:0;font-family:var(--display);font-size:18px;font-weight:700}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--muted)}
 .legend span{display:flex;align-items:center;gap:6px}
 .legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
@@ -171,11 +171,11 @@ details.more summary:focus-visible{outline:2px solid var(--gold);outline-offset:
 .cta{margin-top:20px;border-top:1px solid var(--line)}
 .cta .wrap{padding-block:44px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:center}
 @media (max-width:760px){.cta .wrap{grid-template-columns:1fr}}
-.cta h2{font-family:var(--display);font-weight:500;font-size:clamp(28px,4.4vw,44px);line-height:1.05;margin:10px 0 10px;text-wrap:balance}
+.cta h2{font-family:var(--display);font-weight:700;letter-spacing:-.015em;font-size:clamp(28px,4.4vw,44px);line-height:1.05;margin:10px 0 10px;text-wrap:balance}
 .cta h2 em{color:var(--gold-hi)}
 .cta p{color:var(--muted);margin:0;max-width:52ch}
 .contact{border-radius:18px;padding:22px;background:linear-gradient(160deg,rgba(198,160,74,.14),rgba(198,160,74,.03));border:1px solid var(--panel-b);display:grid;gap:6px}
-.contact .who{font-family:var(--display);font-size:26px;font-weight:600}
+.contact .who{font-family:var(--display);font-size:22px;font-weight:700}
 .contact .role{font-size:11.5px;color:var(--gold);letter-spacing:.06em}
 .contact .phone{font-size:20px;font-weight:700;margin-top:8px;user-select:all;font-variant-numeric:tabular-nums}
 .contact a{margin-top:10px;display:block;text-align:center;text-decoration:none;font-weight:700;font-size:13.5px;color:#25070D;padding:13px;border-radius:12px;background:linear-gradient(135deg,var(--gold-hi),var(--gold));box-shadow:0 10px 30px rgba(198,160,74,.25);transition:transform .2s,box-shadow .2s}
@@ -190,7 +190,7 @@ details.more summary:focus-visible{outline:2px solid var(--gold);outline-offset:
   background:rgba(26,5,9,.92);backdrop-filter:blur(12px);border-top:1px solid var(--panel-b)}
 .mbar .in{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:640px;margin:0 auto}
 .mbar .k{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.mbar .v{font-family:var(--display);font-size:26px;font-weight:600;line-height:1.05;font-variant-numeric:tabular-nums}
+.mbar .v{font-family:var(--display);font-size:22px;font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums}
 .mbar button{font:600 12px var(--body);color:#25070D;background:var(--gold-hi);border:0;border-radius:999px;padding:9px 14px;cursor:pointer;white-space:nowrap}
 @media (max-width:920px){.mbar{display:block}}
 
