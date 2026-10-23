@@ -11,7 +11,7 @@ Recortadas e comprimidas para o site. Para trocar uma foto, substitua o arquivo 
 | sol-renda.webp | https://www.pexels.com/photo/1643383/ |
 | sol-empresa.webp | https://www.pexels.com/photo/1170412/ |
 | pat-imoveis.webp | https://www.pexels.com/photo/280222/ |
-| pat-carros.webp | https://www.pexels.com/photo/3156482/ |
+| pat-carros.webp | https://www.pexels.com/photo/7144186/ |
 | pat-motos.webp | https://www.pexels.com/photo/529782/ |
 | pat-caminhoes.webp | https://www.pexels.com/photo/2199293/ |
 | pat-lanchas.webp | https://www.pexels.com/photo/1295036/ |
