@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luccaademiconpgua-source.github.io/landingpage/sitemap.xml
