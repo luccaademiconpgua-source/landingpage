@@ -136,7 +136,7 @@ def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow,
 <link rel="canonical" href="{url}">
 <meta name="robots" content="{robots}">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" type="image/png" href="{P}icon.png"><link rel="apple-touch-icon" href="{P}icon.png">
+<link rel="icon" href="{P}assets/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/svg+xml" href="{P}assets/favicon.svg?v=2"><link rel="icon" type="image/png" sizes="32x32" href="{P}assets/favicon-32.png?v=2"><link rel="apple-touch-icon" href="{P}assets/favicon-180.png?v=2">
 <meta property="og:type" content="{tipo}"><meta property="og:title" content="{ESC(titulo)}"><meta property="og:description" content="{ESC(descricao)}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{imagem or BASE + 'og.png'}"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="ARVIA Capital">
 <meta name="twitter:card" content="summary_large_image">
