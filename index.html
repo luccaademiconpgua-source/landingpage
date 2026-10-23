@@ -149,6 +149,12 @@ section.bloco.claro{background:var(--papel)}
 .calc li b{color:var(--ouro-hi);display:block;font-size:15px}
 @media (max-width:900px){.calc{grid-template-columns:minmax(0,1fr)}}
 
+.calc-quadro{border-radius:22px;overflow:hidden;background:#1A0509;border:1px solid rgba(198,160,74,.35);box-shadow:0 18px 50px rgba(37,7,13,.18)}
+.calc-quadro iframe{display:block;width:100%;height:1500px;border:0;background:#1A0509}
+@media (max-width:920px){.calc-quadro iframe{height:2600px}}
+.calc-depois{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:20px}
+.calc-depois p{margin:0;color:var(--muted);max-width:60ch}
+
 /* Diagnóstico */
 .diag{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:44px;align-items:start}
 .diag-txt p{color:var(--muted)}
@@ -343,18 +349,17 @@ footer.rodape p{margin:0;max-width:110ch}
 
 <section class="bloco claro" id="simulador" aria-labelledby="t-calc">
   <div class="wrap">
-    <div class="calc">
-      <div>
-        <div class="eyebrow">Calculadora patrimonial</div>
-        <h2 id="t-calc">Veja o consórcio como <em>estratégia</em>, com os seus números</h2>
-        <p>Arraste os controles e compare três cenários: vender a carta contemplada, comprar um imóvel que se paga com o aluguel ou deixar o crédito aplicado. É uma simulação educativa, não uma oferta.</p>
-        <a class="btn btn-ouro" href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/" target="_blank" rel="noopener">Abrir a calculadora patrimonial</a>
-      </div>
-      <ul>
-        <li><b>Vender a carta</b>Quanto a carta pode valer depois de contemplada.</li>
-        <li><b>Imóvel de renda</b>Parcela do consórcio contra o aluguel que o imóvel gera.</li>
-        <li><b>Crédito no CDI</b>O mesmo dinheiro comparado com uma aplicação.</li>
-      </ul>
+    <div class="titulo">
+      <div class="eyebrow">Calculadora patrimonial</div>
+      <h2 id="t-calc">Veja o consórcio como estratégia, com os seus números</h2>
+      <p>Arraste os controles e compare três cenários: vender a carta contemplada, comprar um imóvel que se paga com o aluguel ou deixar o crédito aplicado. É uma simulação educativa, não uma oferta.</p>
+    </div>
+    <div class="calc-quadro">
+      <iframe id="calc-frame" src="calculadora/?embed=1" title="Calculadora patrimonial ARVIA" loading="lazy"></iframe>
+    </div>
+    <div class="calc-depois">
+      <p>Gostou do que viu? Eu monto a simulação oficial com um grupo real, o lance e o prazo certos para o seu objetivo.</p>
+      <a class="btn btn-bordo" href="#diagnostico">Quero a simulação com um grupo real</a>
     </div>
   </div>
 </section>
@@ -521,6 +526,13 @@ footer.rodape p{margin:0;max-width:110ch}
   const form = document.getElementById('ficha');
   const $ = id => document.getElementById(id);
   const radio = n => { const r = form.querySelector(`input[name="${n}"]:checked`); return r ? r.value : ''; };
+
+
+  // Calculadora incorporada: o quadro acompanha a altura do conteúdo
+  window.addEventListener('message', ev=>{
+    const d = ev.data; if(!d || typeof d.arviaCalcAltura!=='number') return;
+    const f = document.getElementById('calc-frame'); if(f && ev.source===f.contentWindow) f.style.height = Math.max(600, d.arviaCalcAltura) + 'px';
+  });
 
   // Botões das soluções já marcam o segmento
   document.querySelectorAll('[data-seg]').forEach(a=>a.addEventListener('click',()=>{
