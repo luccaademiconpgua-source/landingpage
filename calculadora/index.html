@@ -15,7 +15,7 @@ try{ if(/[?&]embed=1/.test(location.search) || window.self!==window.top) documen
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
 <style>
 /* Layout: app de uma tela. Abas no topo; painel de sliders à esquerda; palco com resultado, gráfico e números à direita (fixo ao rolar). No celular empilha e ganha barra de resultado fixa embaixo. Visual único escuro, bordô e ouro. */
 :root{
@@ -24,8 +24,8 @@ try{ if(/[?&]embed=1/.test(location.search) || window.self!==window.top) documen
   --ink:#F5F1E8; --muted:#B8A69E; --dim:#A08C86; --line:rgba(245,241,232,.09);
   --gold:#C6A04A; --gold-hi:#E1C16A; --wine:#4A0D18; --wine-hi:#6B1626;
   --good:#8CCB9F; --warn:#E7BE63; --bad:#EE9090;
-  --display:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --body:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 *{box-sizing:border-box}
 html{background:var(--bg)}
@@ -195,6 +195,7 @@ details.more summary:focus-visible{outline:2px solid var(--gold);outline-offset:
 @media (max-width:920px){.mbar{display:block}}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+h1,h2,h3,.res-big,.logo b{font-variation-settings:'wdth' 106}
 html.embed .top,html.embed .hero,html.embed .cta,html.embed .lgl-foot,html.embed .mbar{display:none!important}
 html.embed body{min-height:0;background:var(--bg)}
 html.embed .app{padding-top:18px}
@@ -302,7 +303,7 @@ html.embed .disclaimer{padding-bottom:18px}
   <b>Simulação, não promessa.</b> Os resultados são projeções a partir dos dados preenchidos nesta tela. Cada grupo tem regras próprias de lance (forma, limite e base de cálculo), índice de correção e parcela reduzida. O mês da contemplação depende do grupo e não é garantido. Ágio, aluguel, valorização e CDI variam com o mercado, e a liberação do crédito em dinheiro depende das regras da administradora. Confirme sempre as condições no regulamento do grupo e na proposta oficial da Ademicon. Nada aqui constitui garantia de resultado, oferta ou recomendação de investimento.
 </aside>
 <!-- Rodapé legal -->
-<footer class="lgl-foot" style="max-width:1180px;margin:0 auto;padding:0 max(18px, env(safe-area-inset-left, 0px)) calc(110px + env(safe-area-inset-bottom,0px));font:12px/1.6 'Montserrat',system-ui,sans-serif;color:inherit;opacity:.82;text-align:center">
+<footer class="lgl-foot" style="max-width:1180px;margin:0 auto;padding:0 max(18px, env(safe-area-inset-left, 0px)) calc(110px + env(safe-area-inset-bottom,0px));font:12px/1.6 'Archivo',system-ui,sans-serif;color:inherit;opacity:.82;text-align:center">
   <p style="margin:0 0 6px"><strong>ARVIA Capital</strong> · A&amp;R Assessoria Estratégica Ltda. · CNPJ 63.972.524/0001-64 · Parceiro autorizado Ademicon · lucca.ribeiro@autorizadoademicon.com.br · WhatsApp (41) 98840-2942</p>
   <nav aria-label="Documentos legais" style="display:flex;gap:6px 16px;justify-content:center;flex-wrap:wrap">
     <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/privacidade.html" style="color:inherit">Política de Privacidade</a>

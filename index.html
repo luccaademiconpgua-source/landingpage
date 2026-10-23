@@ -29,7 +29,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
 <style>
 /* Layout: página única. Faixa escura de abertura com a tese; seções claras alternadas; diagnóstico como peça central; rodapé escuro. */
 :root{
@@ -37,8 +37,8 @@
   --ouro:#C6A04A; --ouro-hi:#E1C16A; --ouro-ink:#7A5A12;
   --off:#F5F1E8; --papel:#FFFFFF; --ink:#1A1214; --muted:#5E504B; --line:#E5DCCB; --creme:#FBF8F1;
   --erro:#A93226;
-  --display:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --body:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --gut:max(20px, env(safe-area-inset-left, 0px));
   --gutr:max(20px, env(safe-area-inset-right, 0px));
 }
@@ -61,6 +61,12 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;letter-spac
 .btn-linha:hover{border-color:var(--ouro-hi);color:var(--ouro-hi)}
 .btn-bordo{background:var(--bordo);color:var(--off)}
 .btn-bordo:hover{background:var(--bordo-mid)}
+
+
+/* Archivo: títulos mais largos, rótulos estreitos em maiúsculas */
+h1,h2,h3,.marca b{font-variation-settings:'wdth' 106}
+.eyebrow,.escada h2,.calc li b{font-variation-settings:'wdth' 80;font-weight:600}
+.btn{font-variation-settings:'wdth' 100}
 
 /* Topo */
 .topo{position:sticky;top:0;z-index:40;background:rgba(37,7,13,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,160,74,.25);padding-top:env(safe-area-inset-top,0px)}
