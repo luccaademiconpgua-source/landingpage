@@ -30,6 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=20261023">
 <style>
 /* Layout: página única. Faixa escura de abertura com a tese; seções claras alternadas; diagnóstico como peça central; rodapé escuro. */
 :root{
@@ -67,20 +68,6 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;letter-spac
 h1,h2,h3,.marca b{font-variation-settings:'wdth' 106}
 .eyebrow,.escada h2,.calc li b{font-variation-settings:'wdth' 80;font-weight:600}
 .btn{font-variation-settings:'wdth' 100}
-
-/* Topo */
-.topo{position:sticky;top:0;z-index:40;background:rgba(37,7,13,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,160,74,.25);padding-top:env(safe-area-inset-top,0px)}
-.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
-.marca{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--off)}
-.losango{width:34px;height:34px;border:1px solid var(--ouro);display:grid;place-items:center;transform:rotate(45deg);flex:none}
-.losango span{transform:rotate(-45deg);font-family:var(--display);font-size:16px;font-weight:600;color:var(--ouro-hi)}
-.marca b{font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:.24em;display:block;line-height:1}
-.marca small{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ouro-hi)}
-.menu{display:flex;gap:4px;align-items:center}
-.menu a{color:rgba(245,241,232,.86);text-decoration:none;font-size:13.5px;font-weight:500;padding:8px 12px;border-radius:8px}
-.menu a:hover{color:var(--ouro-hi)}
-.menu .btn{padding:10px 16px;font-size:13.5px;margin-left:8px}
-@media (max-width:900px){.menu a:not(.btn){display:none}}
 
 /* Abertura */
 .abertura{background:radial-gradient(1100px 520px at 80% -10%, rgba(107,22,38,.75), transparent 60%),radial-gradient(900px 600px at -10% 40%, rgba(74,13,24,.8), transparent 60%),var(--bordo-abs);color:var(--off);overflow:hidden}
@@ -221,32 +208,20 @@ legend .n{width:28px;height:28px;border-radius:50%;background:var(--bordo);color
 .contato h2{font-size:clamp(24px,3vw,34px);max-width:22ch}
 .contato h2 em{color:var(--ouro-hi);font-style:normal}
 .contato .dados{font-size:14px;color:rgba(245,241,232,.82);margin-top:8px}
-footer.rodape{background:var(--bordo-abs);color:rgba(245,241,232,.78);font-size:12.5px;padding-block:34px calc(34px + env(safe-area-inset-bottom,0px))}
-footer.rodape .wrap{display:grid;gap:14px}
-footer.rodape nav{display:flex;gap:6px 18px;flex-wrap:wrap}
-footer.rodape a{color:rgba(245,241,232,.9)}
-footer.rodape p{margin:0;max-width:110ch}
-.zap{position:fixed;right:max(18px, env(safe-area-inset-right, 0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;width:56px;height:56px;border-radius:50%;background:#1FAF5A;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.28)}
-.zap svg{width:28px;height:28px;fill:#fff}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
+<!--site:topo-->
 <header class="topo">
   <div class="wrap">
-    <a class="marca" href="#inicio" aria-label="ARVIA Capital, voltar ao início"><span class="losango" aria-hidden="true"><span>A</span></span><span><b>ARVIA</b><small>Capital</small></span></a>
-    <nav class="menu" aria-label="Seções do site">
-      <a href="#metodo">Método</a>
-      <a href="#solucoes">Soluções</a>
-      <a href="#simulador">Simulador</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#duvidas">Dúvidas</a>
-      <a href="blog/">Blog</a>
-      <a class="btn btn-ouro" href="#diagnostico">Diagnóstico gratuito</a>
-    </nav>
+    <a class="marca" href="#inicio" aria-label="ARVIA Capital, ir para o início"><span class="losango" aria-hidden="true"><span>A</span></span><span><b>ARVIA</b><small>Capital</small></span></a>
+    <button class="abre-menu" type="button" aria-expanded="false" aria-controls="menu-site"><i aria-hidden="true"></i>Menu</button>
+    <nav class="menu" id="menu-site" aria-label="Menu principal"><a href="#metodo">Método</a><a href="#solucoes">Soluções</a><a href="#simulador">Simulador</a><a href="blog/">Blog</a><a href="#sobre">Sobre</a><a href="contato/">Contato</a><a class="btn btn-ouro" href="#diagnostico">Diagnóstico gratuito</a></nav>
   </div>
 </header>
+<!--/site:topo-->
 
 <main id="conteudo">
 
@@ -362,7 +337,7 @@ footer.rodape p{margin:0;max-width:110ch}
       <p>Arraste os controles e compare três cenários: vender a carta contemplada, comprar um imóvel que se paga com o aluguel ou deixar o crédito aplicado. É uma simulação educativa, não uma oferta.</p>
     </div>
     <div class="calc-quadro">
-      <iframe id="calc-frame" src="calculadora/?embed=1" title="Calculadora patrimonial ARVIA" loading="lazy"></iframe>
+      <iframe id="calc-frame" class="calc-frame" src="calculadora/?embed=1" title="Calculadora patrimonial ARVIA" loading="lazy"></iframe>
     </div>
     <div class="calc-depois">
       <p>Gostou do que viu? Eu monto a simulação oficial com um grupo real, o lance e o prazo certos para o seu objetivo.</p>
@@ -454,7 +429,7 @@ footer.rodape p{margin:0;max-width:110ch}
       </fieldset>
 
       <div class="campo" data-c="aceite">
-        <label class="aceite" for="f-aceite"><input type="checkbox" id="f-aceite"> <span>Li e concordo com a <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o uso dos meus dados para receber o contato e a proposta.</span></label>
+        <label class="aceite" for="f-aceite"><input type="checkbox" id="f-aceite"> <span>Li e concordo com a <a href="privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o uso dos meus dados para receber o contato e a proposta.</span></label>
         <span class="erro">Para continuar, é preciso aceitar a Política de Privacidade.</span>
       </div>
       <button type="submit" class="btn btn-bordo" id="f-enviar">Quero receber meu plano</button>
@@ -481,7 +456,19 @@ footer.rodape p{margin:0;max-width:110ch}
   </div>
 </section>
 
-<section class="bloco" id="duvidas" aria-labelledby="t-faq">
+<!--site:blog-->
+<section class="bloco" id="blog" aria-labelledby="t-blog">
+  <div class="wrap">
+    <div class="blog-topo">
+      <div class="titulo"><div class="eyebrow">Do blog</div><h2 id="t-blog">Para decidir com informação</h2><p>Matérias curtas sobre consórcio, lance e planejamento patrimonial.</p></div>
+      <a class="btn btn-bordo" href="blog/">Ver todas as matérias</a>
+    </div>
+    <div class="lista"><a class="card" href="blog/consorcio-ou-financiamento-imobiliario/"><span class="cat">Imóvel</span><h3>Consórcio ou financiamento imobiliário: qual vale mais a pena?</h3><p>Financiamento entrega o imóvel agora e cobra juros por isso. Consórcio troca os juros por planejamento. Veja quando cada caminho faz mais sentido.</p><span class="mais">Ler matéria · 3 min</span></a><a class="card" href="blog/fui-contemplado-no-consorcio/"><span class="cat">Contemplação</span><h3>Fui contemplado no consórcio: e agora? Passo a passo para usar a carta</h3><p>A contemplação é o começo da segunda fase. Veja o passo a passo até o crédito virar o seu imóvel ou veículo, e o que mais atrasa a liberação.</p><span class="mais">Ler matéria · 2 min</span></a><a class="card" href="blog/lance-embutido/"><span class="cat">Estratégia</span><h3>Lance embutido: o que é, como funciona e quando vale a pena</h3><p>O lance embutido usa parte da própria carta de crédito para dar o lance. Veja como funciona, um exemplo com números e os cuidados antes de usar.</p><span class="mais">Ler matéria · 2 min</span></a></div>
+  </div>
+</section>
+<!--/site:blog-->
+
+<section class="bloco claro" id="duvidas" aria-labelledby="t-faq">
   <div class="wrap">
     <div class="titulo"><div class="eyebrow">Dúvidas frequentes</div><h2 id="t-faq">Antes de decidir</h2></div>
     <div class="faq">
@@ -508,20 +495,45 @@ footer.rodape p{margin:0;max-width:110ch}
 
 </main>
 
+<!--site:rodape-->
 <footer class="rodape">
   <div class="wrap">
-    <nav aria-label="Documentos legais">
-      <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/privacidade.html">Política de Privacidade</a>
-      <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/termos.html">Termos de Uso</a>
-      <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/cookies.html">Política de Cookies</a>
-      <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/contato.html">Contato</a>
-    </nav>
-    <p><strong>ARVIA Capital</strong> é a marca de A&amp;R Assessoria Estratégica Ltda. · CNPJ 63.972.524/0001-64 · Rua Antônio Morais Pereira da Costa, 44, Correia Velho, Paranaguá/PR, CEP 83206-400 · Parceiro autorizado Ademicon · lucca.ribeiro@autorizadoademicon.com.br · WhatsApp (41) 98840-2942</p>
-    <p>O consórcio é administrado pela Ademicon Administradora de Consórcios. As administradoras de consórcio são autorizadas e fiscalizadas pelo Banco Central do Brasil. Simulações são ilustrativas e não garantem contemplação, rentabilidade ou resultado.</p>
-    <p>© 2026 A&amp;R Assessoria Estratégica Ltda. (ARVIA Capital). Todos os direitos reservados. Proibida a cópia ou reprodução, total ou parcial, sem autorização.</p>
+    <div class="rod-grade">
+      <div>
+        <a class="marca" href="#inicio" aria-label="ARVIA Capital, ir para o início"><span class="losango" aria-hidden="true"><span>A</span></span><span><b>ARVIA</b><small>Capital</small></span></a>
+        <p class="sobre-curto">Consultoria patrimonial com consórcio: diagnóstico, estratégia de lance e acompanhamento em cada assembleia. Atendimento online para todo o Brasil e para brasileiros no exterior.</p>
+      </div>
+      <nav aria-label="Site"><h2>Site</h2><ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#solucoes">Soluções</a></li>
+        <li><a href="#simulador">Simulador</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#diagnostico">Diagnóstico gratuito</a></li>
+      </ul></nav>
+      <nav aria-label="Atendimento"><h2>Atendimento</h2><ul>
+        <li><a href="https://wa.me/5541988402942?text=Ol%C3%A1%20Lucca%2C%20vim%20pelo%20site%20da%20ARVIA%20Capital." target="_blank" rel="noopener">WhatsApp (41) 98840-2942</a></li>
+        <li><a href="mailto:lucca.ribeiro@autorizadoademicon.com.br">E-mail</a></li>
+        <li><a href="https://www.instagram.com/luccaaribeiro/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/lucca-antunes-ribeiro-79a055188" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="contato/">Página de contato</a></li>
+      </ul></nav>
+      <nav aria-label="Documentos legais"><h2>Legal</h2><ul>
+        <li><a href="privacidade/">Política de Privacidade</a></li>
+        <li><a href="termos/">Termos de Uso</a></li>
+        <li><a href="cookies/">Política de Cookies</a></li>
+      </ul></nav>
+    </div>
+    <div class="rod-legal">
+      <p><strong>ARVIA Capital</strong> é a marca de A&amp;R Assessoria Estratégica Ltda. · CNPJ 63.972.524/0001-64 · Rua Antônio Morais Pereira da Costa, 44, Correia Velho, Paranaguá/PR, CEP 83206-400 · Parceiro autorizado Ademicon</p>
+      <p>O consórcio é administrado pela Ademicon Administradora de Consórcios. As administradoras de consórcio são autorizadas e fiscalizadas pelo Banco Central do Brasil. Conteúdo educativo: simulações e exemplos são ilustrativos e não garantem contemplação, rentabilidade ou resultado.</p>
+      <p>© 2026 A&amp;R Assessoria Estratégica Ltda. (ARVIA Capital). Todos os direitos reservados. Proibida a cópia ou reprodução, total ou parcial, sem autorização.</p>
+    </div>
   </div>
   <a class="zap" href="https://wa.me/5541988402942?text=Ol%C3%A1%20Lucca%2C%20vim%20pelo%20site%20da%20ARVIA%20Capital." target="_blank" rel="noopener" aria-label="Falar com o Lucca no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></svg></a>
 </footer>
+<!--/site:rodape-->
 
 
 
@@ -535,11 +547,6 @@ footer.rodape p{margin:0;max-width:110ch}
   const radio = n => { const r = form.querySelector(`input[name="${n}"]:checked`); return r ? r.value : ''; };
 
 
-  // Calculadora incorporada: o quadro acompanha a altura do conteúdo
-  window.addEventListener('message', ev=>{
-    const d = ev.data; if(!d || typeof d.arviaCalcAltura!=='number') return;
-    const f = document.getElementById('calc-frame'); if(f && ev.source===f.contentWindow) f.style.height = Math.max(600, d.arviaCalcAltura) + 'px';
-  });
 
   // Guarda de onde o visitante veio (ex.: link da bio do Instagram)
   let TRAFEGO = '';
@@ -594,5 +601,6 @@ footer.rodape p{margin:0;max-width:110ch}
   });
 })();
 </script>
+<script src="assets/site.js?v=20261023" defer></script>
 </body>
 </html>
