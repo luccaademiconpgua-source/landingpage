@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- © 2026 A&R Assessoria Estratégica Ltda. (ARVIA Capital). Todos os direitos reservados. Lei nº 9.609/1998 e Lei nº 9.610/1998. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lucca Antunes · Links · ARVIA Capital</title>
+<meta name="description" content="Lucca Antunes, consultor da ARVIA Capital. Faça o diagnóstico gratuito de consórcio em 1 minuto e acesse o site, a calculadora e as redes.">
+<link rel="canonical" href="https://luccaademiconpgua-source.github.io/landingpage/links/">
+<meta name="theme-color" content="#25070D">
+<link rel="icon" type="image/png" href="../icon.png">
+<meta property="og:type" content="profile"><meta property="og:title" content="Lucca Antunes · ARVIA Capital">
+<meta property="og:description" content="Diagnóstico gratuito de consórcio em 1 minuto, site, calculadora e redes.">
+<meta property="og:url" content="https://luccaademiconpgua-source.github.io/landingpage/links/">
+<meta property="og:image" content="https://luccaademiconpgua-source.github.io/landingpage/og.png"><meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<style>
+/* Layout: coluna única de link da bio. Perfil, diagnóstico em 5 passos, lista de links, rodapé legal. */
+:root{
+  --bordo:#4A0D18;--bordo-abs:#25070D;--bordo-mid:#6B1626;--ouro:#C6A04A;--ouro-hi:#E1C16A;
+  --off:#F5F1E8;--off-dim:rgba(245,241,232,.74);--linha:rgba(225,193,106,.22);--cartao:rgba(255,248,235,.045);
+  --f:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--bordo-abs)}
+body{margin:0;min-height:100vh;color:var(--off);font:15.5px/1.55 var(--f);
+  background:radial-gradient(700px 420px at 50% -120px,rgba(107,22,38,.85),transparent 70%),var(--bordo-abs)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ouro-hi);outline-offset:3px}
+main{max-width:520px;margin:0 auto;padding:calc(30px + env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) 28px max(18px,env(safe-area-inset-left,0px));display:grid;gap:18px}
+.perfil{text-align:center;display:grid;justify-items:center;gap:8px}
+.foto{width:104px;height:104px;border-radius:50%;padding:3px;background:linear-gradient(140deg,var(--ouro-hi),var(--bordo-mid))}
+.foto img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--bordo-abs)}
+.perfil h1{margin:6px 0 0;font-size:26px;font-weight:800;font-variation-settings:'wdth' 106;letter-spacing:-.01em}
+.perfil .cargo{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro-hi);font-weight:600;font-variation-settings:'wdth' 80}
+.perfil .frase{margin:2px 0 0;color:var(--off-dim);font-size:15px;max-width:34ch}
+.selos{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:6px}
+.selos span{font-size:11.5px;font-weight:600;letter-spacing:.06em;border:1px solid var(--linha);border-radius:999px;padding:4px 10px;color:var(--off-dim);font-variation-settings:'wdth' 88}
+
+.diag{background:var(--off);color:#1A1214;border-radius:20px;padding:22px 20px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.diag .tag{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#7A5A12;font-variation-settings:'wdth' 80}
+.diag h2{margin:6px 0 4px;font-size:21px;line-height:1.2;font-weight:800;font-variation-settings:'wdth' 104;color:var(--bordo)}
+.diag .sub{margin:0 0 14px;font-size:14px;color:#5E504B}
+.passo[hidden]{display:none}
+.passo .q{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7A5A12;font-weight:700;font-variation-settings:'wdth' 84}
+.passo h3{margin:4px 0 4px;font-size:18px;font-weight:700;color:#1A1214;font-variation-settings:'wdth' 102}
+.passo .nota{margin:0 0 10px;font-size:13px;color:#5E504B}
+.ops{display:grid;gap:8px;margin-top:10px}
+.op{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #E5DCCB;border-radius:14px;padding:12px 14px;font:inherit;color:#1A1214;cursor:pointer}
+.op b{display:block;font-weight:700;font-size:15px}
+.op span{display:block;font-size:13px;color:#5E504B}
+.op:hover{border-color:var(--ouro)}
+.op[aria-pressed="true"]{border-color:var(--bordo);background:#F7EEE9}
+.barra{height:4px;background:#E5DCCB;border-radius:4px;overflow:hidden;margin:2px 0 14px}
+.barra i{display:block;height:100%;width:20%;background:var(--bordo);transition:width .25s}
+.voltar{background:none;border:0;color:#5E504B;font:600 13px var(--f);padding:8px 0;cursor:pointer;margin-top:6px}
+.campo{display:grid;gap:5px;margin-top:10px}
+.campo label{font-size:13px;font-weight:600}
+.campo input,.campo select{width:100%;padding:12px 13px;border:1.5px solid #E5DCCB;border-radius:12px;font:15px var(--f);background:#fff;color:#1A1214}
+.campo input:focus,.campo select:focus{outline:none;border-color:var(--bordo-mid);box-shadow:0 0 0 3px rgba(198,160,74,.35)}
+.tel{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px}
+.aceite{display:flex;gap:9px;align-items:flex-start;font-size:13px;margin-top:12px;cursor:pointer}
+.aceite input{width:19px;height:19px;flex:none;margin-top:1px;accent-color:var(--bordo)}
+.erro{color:#A93226;font-size:12.5px;margin:8px 0 0;min-height:1em}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px 18px;border-radius:999px;border:0;font:700 15px var(--f);cursor:pointer;text-decoration:none;margin-top:14px}
+.btn-bordo{background:var(--bordo);color:var(--off)}
+.btn-ouro{background:linear-gradient(180deg,var(--ouro-hi),var(--ouro));color:var(--bordo-abs)}
+.privado{text-align:center;font-size:12px;color:#5E504B;margin:8px 0 0}
+.resultado h3{font-size:20px;color:var(--bordo)}
+.resultado .pts{margin:10px 0 0;padding-left:18px;font-size:14.5px;display:grid;gap:6px}
+.resultado .aviso{font-size:12.5px;color:#5E504B;background:#FBF8F1;border-radius:10px;padding:10px 12px;margin-top:12px}
+
+.links{display:grid;gap:10px}
+.link{display:flex;align-items:center;gap:14px;padding:15px 16px;border:1px solid var(--linha);background:var(--cartao);border-radius:16px;text-decoration:none;transition:border-color .15s,transform .15s}
+.link:hover{border-color:var(--ouro);transform:translateY(-1px)}
+.link .ic{width:38px;height:38px;border-radius:11px;background:rgba(225,193,106,.12);display:grid;place-items:center;flex:none}
+.link .ic svg{width:20px;height:20px;stroke:var(--ouro-hi);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.link b{display:block;font-size:15.5px;font-weight:700;font-variation-settings:'wdth' 100}
+.link span{display:block;font-size:13px;color:var(--off-dim)}
+.link.destaque{background:linear-gradient(180deg,rgba(225,193,106,.16),rgba(225,193,106,.06));border-color:rgba(225,193,106,.5)}
+footer{max-width:520px;margin:0 auto;padding:6px 18px calc(28px + env(safe-area-inset-bottom,0px));text-align:center;font-size:11.5px;color:rgba(245,241,232,.6)}
+footer nav{display:flex;gap:6px 14px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+footer a{color:rgba(245,241,232,.8)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <header class="perfil">
+    <div class="foto"><img src="AVATAR" alt="Lucca Antunes" width="98" height="98"></div>
+    <h1>Lucca Antunes</h1>
+    <div class="cargo">ARVIA Capital · Consórcio estratégico</div>
+    <p class="frase">Estratégia para transformar projetos em patrimônio.</p>
+    <div class="selos"><span>Parceiro autorizado Ademicon</span><span>Brasil e exterior</span><span>Atendimento online</span></div>
+  </header>
+
+  <section class="diag" aria-labelledby="t-diag">
+    <div class="tag">Diagnóstico gratuito · 1 minuto</div>
+    <h2 id="t-diag">Qual é o melhor caminho de consórcio para o seu projeto?</h2>
+    <p class="sub">Responda 5 perguntas rápidas e veja por onde começar.</p>
+    <div class="barra" aria-hidden="true"><i id="progresso"></i></div>
+
+    <div class="passo" data-p="1">
+      <div class="q">Pergunta 1 de 5</div>
+      <h3>O que você quer conquistar?</h3>
+      <div class="ops" data-campo="objetivo">
+        <button type="button" class="op" data-v="Imóvel para morar"><b>Imóvel para morar</b><span>Casa, apartamento, terreno ou construção.</span></button>
+        <button type="button" class="op" data-v="Imóvel para investir"><b>Imóvel para investir</b><span>Gerar renda com aluguel ou montar patrimônio.</span></button>
+        <button type="button" class="op" data-v="Veículo"><b>Veículo</b><span>Trocar ou comprar sem pagar juros.</span></button>
+        <button type="button" class="op" data-v="Empresa"><b>Crescer a empresa</b><span>Sede, frota ou equipamentos sem descapitalizar.</span></button>
+      </div>
+    </div>
+
+    <div class="passo" data-p="2" hidden>
+      <div class="q">Pergunta 2 de 5</div>
+      <h3>Qual é a sua pressa?</h3>
+      <p class="nota">Não existe data garantida de contemplação, mas a sua pressa muda a estratégia.</p>
+      <div class="ops" data-campo="pressa">
+        <button type="button" class="op" data-v="Preciso logo"><b>Preciso resolver logo</b></button>
+        <button type="button" class="op" data-v="1 a 2 anos"><b>Tenho de 1 a 2 anos</b></button>
+        <button type="button" class="op" data-v="Sem pressa"><b>Sem pressa, quero o menor custo</b></button>
+      </div>
+      <button type="button" class="voltar">← Voltar</button>
+    </div>
+
+    <div class="passo" data-p="3" hidden>
+      <div class="q">Pergunta 3 de 5</div>
+      <h3>Quanto você quer destinar por mês?</h3>
+      <div class="ops" data-campo="valor">
+        <button type="button" class="op" data-v="Até R$1.000"><b>Até R$ 1.000</b></button>
+        <button type="button" class="op" data-v="R$1.000 a R$2.000"><b>De R$ 1.000 a R$ 2.000</b></button>
+        <button type="button" class="op" data-v="R$2.000 a R$5.000"><b>De R$ 2.000 a R$ 5.000</b></button>
+        <button type="button" class="op" data-v="Acima de R$5.000"><b>Acima de R$ 5.000</b></button>
+        <button type="button" class="op" data-v="Ainda não sei"><b>Ainda não sei</b><span>A gente descobre na conversa.</span></button>
+      </div>
+      <button type="button" class="voltar">← Voltar</button>
+    </div>
+
+    <div class="passo" data-p="4" hidden>
+      <div class="q">Pergunta 4 de 5</div>
+      <h3>Você tem algum valor para dar de lance hoje?</h3>
+      <p class="nota">Recurso próprio, fora das parcelas. Não precisa ter.</p>
+      <div class="ops" data-campo="lance">
+        <button type="button" class="op" data-v="Nada por enquanto"><b>Nada por enquanto</b><span>Só a parcela.</span></button>
+        <button type="button" class="op" data-v="Até 10%"><b>Até 10% do valor do bem</b></button>
+        <button type="button" class="op" data-v="10% a 25%"><b>Entre 10% e 25%</b></button>
+        <button type="button" class="op" data-v="Mais de 25%"><b>Mais de 25%</b></button>
+      </div>
+      <button type="button" class="voltar">← Voltar</button>
+    </div>
+
+    <form class="passo" data-p="5" id="contato" hidden novalidate>
+      <div class="q">Pergunta 5 de 5</div>
+      <h3>Para onde eu mando o seu diagnóstico?</h3>
+      <div class="campo"><label for="c-nome">Seu nome</label><input id="c-nome" type="text" autocomplete="name" placeholder="Como posso te chamar?"></div>
+      <div class="campo"><label for="c-tel">WhatsApp</label>
+        <div class="tel">
+          <select id="c-ddi" aria-label="Código do país">
+            <option value="55">🇧🇷 +55</option><option value="351">🇵🇹 +351</option><option value="1">🇺🇸 +1</option><option value="44">🇬🇧 +44</option>
+            <option value="34">🇪🇸 +34</option><option value="39">🇮🇹 +39</option><option value="353">🇮🇪 +353</option><option value="49">🇩🇪 +49</option>
+            <option value="41">🇨🇭 +41</option><option value="61">🇦🇺 +61</option><option value="81">🇯🇵 +81</option><option value="">Outro</option>
+          </select>
+          <input id="c-tel" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(41) 99999-9999">
+        </div>
+      </div>
+      <div class="campo"><label for="c-email">E-mail</label><input id="c-email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com"></div>
+      <label class="aceite" for="c-aceite"><input type="checkbox" id="c-aceite"><span>Li e concordo com a <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o contato.</span></label>
+      <p class="erro" id="c-erro" role="alert"></p>
+      <button type="submit" class="btn btn-bordo">Ver meu diagnóstico</button>
+      <p class="privado">Seus dados ficam protegidos e não são repassados a ninguém.</p>
+      <button type="button" class="voltar">← Voltar</button>
+    </form>
+
+    <div class="passo resultado" data-p="6" hidden aria-live="polite">
+      <div class="q">Seu diagnóstico</div>
+      <h3 id="r-titulo"></h3>
+      <ul class="pts" id="r-pontos"></ul>
+      <p class="aviso">Este é um ponto de partida, não uma proposta. Não existe data garantida de contemplação; a estratégia certa sai da simulação com um grupo real.</p>
+      <a class="btn btn-ouro" id="r-whats" href="#" target="_blank" rel="noopener">Montar meu plano no WhatsApp</a>
+      <button type="button" class="voltar" id="refazer">Refazer o diagnóstico</button>
+    </div>
+  </section>
+
+  <nav class="links" aria-label="Links">
+    <a class="link destaque" href="https://luccaademiconpgua-source.github.io/landingpage/?utm_source=instagram&amp;utm_medium=bio">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>
+      <span><b>Conheça a ARVIA Capital</b><span>Método, soluções e dúvidas frequentes</span></span></a>
+    <a class="link" href="https://luccaademiconpgua-source.github.io/landingpage/?utm_source=instagram&amp;utm_medium=bio#simulador">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h8"/></svg></span>
+      <span><b>Calculadora patrimonial</b><span>Veja o consórcio como estratégia, com os seus números</span></span></a>
+    <a class="link" href="https://wa.me/5541988402942?text=Ol%C3%A1%2C%20Lucca!%20Vim%20pelo%20link%20da%20bio%20e%20quero%20falar%20com%20voc%C3%AA." target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1z"/></svg></span>
+      <span><b>Falar comigo no WhatsApp</b><span>(41) 98840-2942</span></span></a>
+    <a class="link" href="https://www.instagram.com/luccaaribeiro/" target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h0"/></svg></span>
+      <span><b>Instagram</b><span>@luccaaribeiro</span></span></a>
+    <a class="link" href="https://www.linkedin.com/in/lucca-antunes-ribeiro-79a055188" target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7h0M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></span>
+      <span><b>LinkedIn</b><span>Trajetória e conteúdos</span></span></a>
+    <a class="link" href="mailto:lucca.ribeiro@autorizadoademicon.com.br">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+      <span><b>E-mail</b><span>lucca.ribeiro@autorizadoademicon.com.br</span></span></a>
+  </nav>
+</main>
+<footer>
+  <nav aria-label="Documentos legais">
+    <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/privacidade.html">Privacidade</a>
+    <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/termos.html">Termos de Uso</a>
+    <a href="https://luccaademiconpgua-source.github.io/calculadora-de-patrimonio/contato.html">Contato</a>
+  </nav>
+  ARVIA Capital · A&amp;R Assessoria Estratégica Ltda. · CNPJ 63.972.524/0001-64 · Parceiro autorizado Ademicon<br>
+  © 2026 A&amp;R Assessoria Estratégica Ltda. Todos os direitos reservados.
+</footer>
+
+<script>
+(function(){
+  const CRM_URL = "https://maudmkjtzryqqytqgbki.supabase.co";
+  const CRM_KEY = "CRM_KEY_AQUI"; // chave pública (anon): só permite enviar leads, não ler
+  const WHATS = "5541988402942";
+  const R = {}; let atual = 1;
+  const $ = id => document.getElementById(id);
+  const passos = [...document.querySelectorAll('.passo')];
+  function ir(n){
+    atual = n;
+    passos.forEach(p=>p.hidden = +p.dataset.p !== n);
+    $('progresso').style.width = Math.min(100, n*20) + '%';
+    const alvo = passos.find(p=>+p.dataset.p===n);
+    const foco = alvo && alvo.querySelector('h3'); if(foco){ foco.setAttribute('tabindex','-1'); foco.focus({preventScroll:true}); }
+  }
+  document.querySelectorAll('.ops').forEach(g=>g.addEventListener('click', e=>{
+    const b = e.target.closest('.op'); if(!b) return;
+    g.querySelectorAll('.op').forEach(o=>o.setAttribute('aria-pressed', o===b));
+    R[g.dataset.campo] = b.dataset.v;
+    setTimeout(()=>ir(atual+1), 160);
+  }));
+  document.querySelectorAll('.voltar:not(#refazer)').forEach(b=>b.addEventListener('click', ()=>ir(Math.max(1, atual-1))));
+  $('refazer').addEventListener('click', ()=>{ document.querySelectorAll('.op').forEach(o=>o.setAttribute('aria-pressed','false')); ir(1); });
+
+  function diagnostico(){
+    const pts = []; let titulo;
+    const lance = R.lance, pressa = R.pressa;
+    if(pressa==='Preciso logo' && (lance==='10% a 25%' || lance==='Mais de 25%')){ titulo = 'Estratégia de lance planejado'; pts.push('Você já tem recurso para um lance competitivo. O foco é escolher um grupo em que esse percentual tenha boas chances nas assembleias.'); }
+    else if(pressa==='Preciso logo'){ titulo = 'Lance embutido com carta bem dimensionada'; pts.push('Sem recurso próprio para lance, o caminho é usar parte da própria carta como lance, escolhendo um valor de crédito que ainda cubra o seu objetivo.'); }
+    else if(pressa==='1 a 2 anos'){ titulo = 'Lance fixo e acompanhamento das assembleias'; pts.push('Com um prazo de 1 a 2 anos, dá para combinar sorteio e lance fixo, ajustando a estratégia a cada assembleia.'); }
+    else { titulo = 'Menor custo com planejamento'; pts.push('Sem pressa, o objetivo é pagar o mínimo pelo dinheiro: parcela que cabe no mês e lance usado só quando fizer sentido.'); }
+    const obj = { 'Imóvel para morar':'Para morar, a carta pode ser usada em imóvel pronto, na planta, terreno ou construção, conforme as regras do contrato.',
+      'Imóvel para investir':'Para investir, vale comparar a parcela com o aluguel que o imóvel pode gerar e o momento de usar ou negociar a carta.',
+      'Veículo':'No veículo, a carta funciona como compra à vista, o que ajuda na negociação com a loja.',
+      'Empresa':'Para a empresa, o consórcio ajuda a crescer preservando o capital de giro.' }[R.objetivo];
+    if(obj) pts.push(obj);
+    if(R.valor && R.valor!=='Ainda não sei') pts.push(`Com cerca de ${R.valor.replace(/R\$\s?/g,'R$ ')} por mês, eu já consigo te mostrar grupos e valores de carta compatíveis.`);
+    else pts.push('Na conversa a gente descobre juntos uma parcela que caiba no seu mês sem apertar.');
+    return { titulo, pts };
+  }
+
+  $('contato').addEventListener('submit', e=>{
+    e.preventDefault();
+    const nome = $('c-nome').value.trim(), tel = $('c-tel').value.replace(/\D/g,''), ddi = $('c-ddi').value, email = $('c-email').value.trim();
+    const erro = $('c-erro');
+    if(nome.length < 2) return erro.textContent = 'Me conta o seu nome, por favor.';
+    if(tel.length < 8) return erro.textContent = 'Informe o seu WhatsApp com DDD.';
+    if(!/^\S+@\S+\.\S+$/.test(email)) return erro.textContent = 'Informe um e-mail válido.';
+    if(!$('c-aceite').checked) return erro.textContent = 'Para continuar, aceite a Política de Privacidade.';
+    erro.textContent = '';
+    const whatsapp = (ddi ? '+' + ddi + ' ' : '') + $('c-tel').value.trim();
+    const d = diagnostico();
+    try{
+      fetch(CRM_URL + "/rest/v1/leads", { method:"POST", keepalive:true,
+        headers:{ "apikey":CRM_KEY, "Authorization":"Bearer "+CRM_KEY, "Content-Type":"application/json", "Prefer":"return=minimal" },
+        body: JSON.stringify({ origem:"links", nome, whatsapp, email,
+          segmento: /Imóvel/.test(R.objetivo) ? 'Imóvel' : R.objetivo==='Veículo' ? 'Veículo' : 'Serviço',
+          objetivo: R.objetivo, valor_mensal: R.valor,
+          qualificacao: { pressa:R.pressa, lance:R.lance, diagnostico:d.titulo },
+          consentimento:true, consentimento_em:new Date().toISOString() }) }).catch(()=>{});
+    }catch(err){}
+    $('r-titulo').textContent = d.titulo;
+    $('r-pontos').innerHTML = d.pts.map(t=>'<li>'+t.replace(/[<>&]/g,'')+'</li>').join('');
+    const msg = ["Olá, Lucca! Fiz o diagnóstico pelo link da bio e quero montar o meu plano.", "",
+      "Nome: "+nome, "Objetivo: "+R.objetivo, "Pressa: "+R.pressa, "Por mês: "+R.valor, "Lance hoje: "+R.lance, "Diagnóstico: "+d.titulo].join("\n");
+    $('r-whats').href = "https://wa.me/"+WHATS+"?text="+encodeURIComponent(msg);
+    ir(6);
+  });
+})();
+</script>
+</body>
+</html>

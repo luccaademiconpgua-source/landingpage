@@ -540,6 +540,10 @@ footer.rodape p{margin:0;max-width:110ch}
     const f = document.getElementById('calc-frame'); if(f && ev.source===f.contentWindow) f.style.height = Math.max(600, d.arviaCalcAltura) + 'px';
   });
 
+  // Guarda de onde o visitante veio (ex.: link da bio do Instagram)
+  let TRAFEGO = '';
+  try{ const u = new URLSearchParams(location.search); TRAFEGO = [u.get('utm_source'), u.get('utm_medium')].filter(Boolean).join(' / '); if(TRAFEGO) sessionStorage.setItem('arviaTrafego', TRAFEGO); else TRAFEGO = sessionStorage.getItem('arviaTrafego') || ''; }catch(e){}
+
   // Botões das soluções já marcam o segmento
   document.querySelectorAll('[data-seg]').forEach(a=>a.addEventListener('click',()=>{
     const r = form.querySelector(`input[name="segmento"][value="${a.dataset.seg}"]`); if(r) r.checked = true;
@@ -571,7 +575,7 @@ footer.rodape p{margin:0;max-width:110ch}
         method:"POST", keepalive:true,
         headers:{ "apikey":CRM_KEY, "Authorization":"Bearer "+CRM_KEY, "Content-Type":"application/json", "Prefer":"return=minimal" },
         body: JSON.stringify({ origem:"landing", nome:d.nome, whatsapp:d.whatsapp, email:d.email, segmento:d.segmento, objetivo:d.objetivo,
-          valor_mensal:d.valor, qualificacao:{ aluguel:d.aluguel, carro:d.carro, empreender:d.empreender, guardar:d.guardar },
+          valor_mensal:d.valor, qualificacao:{ aluguel:d.aluguel, carro:d.carro, empreender:d.empreender, guardar:d.guardar, trafego: TRAFEGO || undefined },
           detalhe:d.detalhe || null, consentimento:true, consentimento_em:agora })
       }).catch(()=>{});
     }catch(err){}
