@@ -223,13 +223,7 @@ legend .n{font-variant-numeric:lining-nums;font-size:28px;color:var(--ouro-tinta
 .arvia .wrap{padding-block:96px}
 .arvia .titulo h2{color:#fff}
 .arvia .titulo p{color:rgba(255,255,255,.75)}
-.nome{display:grid;grid-template-columns:1fr 1fr 1.4fr;margin:0;border-top:1px solid rgba(255,255,255,.25)}
-.nome > div{padding:28px 32px 8px 0}
-.nome > div + div{padding-left:32px;border-left:1px solid rgba(255,255,255,.18)}
-.nome dt{font-size:15px;font-weight:600;color:#fff;display:grid;gap:6px}
-.nome .letra{font-family:var(--display);font-size:clamp(72px,9vw,128px);line-height:.85;font-weight:500;color:var(--ouro);letter-spacing:.02em}
-.nome dd{margin:10px 0 0;color:rgba(255,255,255,.72);font-size:14.5px;max-width:34ch}
-.proposito{display:grid;grid-template-columns:1fr 1fr;gap:32px 56px;margin-top:72px;padding-top:32px;border-top:1px solid rgba(255,255,255,.25)}
+.proposito{display:grid;grid-template-columns:1fr 1fr;gap:32px 56px;margin-top:0;padding-top:32px;border-top:1px solid rgba(255,255,255,.25)}
 .proposito h3,.valores-t{font-size:34px;color:var(--ouro-claro);margin:0 0 12px}
 .proposito p{margin:0;color:rgba(255,255,255,.85);font-family:var(--display);font-size:clamp(21px,2vw,25px);line-height:1.4;max-width:40ch}
 .valores-t{margin-top:64px}
@@ -238,13 +232,19 @@ legend .n{font-variant-numeric:lining-nums;font-size:28px;color:var(--ouro-tinta
 .valores b{font-family:var(--display);font-size:24px;font-weight:600;color:#fff}
 .valores span{color:rgba(255,255,255,.75);font-size:14.5px}
 @media (max-width:900px){
-  .nome{grid-template-columns:minmax(0,1fr)}
-  .nome > div,.nome > div + div{padding:24px 0 16px;border-left:0;border-top:1px solid rgba(255,255,255,.18)}
-  .nome > div:first-child{border-top:0}
   .proposito{grid-template-columns:minmax(0,1fr);margin-top:48px}
   .arvia .wrap{padding-block:64px}
 }
 @media (max-width:520px){.valores li{grid-template-columns:minmax(0,1fr);gap:2px}}
+
+/* Significado do nome sob o título do método */
+.titulo-metodo{max-width:none}
+.sigla{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 40px;margin:8px 0 28px;max-width:980px}
+.sigla dt{display:flex;align-items:baseline;gap:12px;font-size:15px;font-weight:600;color:var(--tinta)}
+.sigla dt span{font-family:var(--display);font-size:clamp(44px,5vw,64px);line-height:1;font-weight:500;color:var(--ouro-tinta)}
+.sigla dd{margin:4px 0 0;font-size:14px;color:var(--cinza);max-width:32ch}
+.titulo-metodo > p{max-width:60ch}
+@media (max-width:760px){.sigla{grid-template-columns:minmax(0,1fr);gap:16px}}
 </style>
 </head>
 <body>
@@ -291,8 +291,13 @@ legend .n{font-variant-numeric:lining-nums;font-size:28px;color:var(--ouro-tinta
 
 <section class="bloco" id="metodo" aria-labelledby="t-metodo">
   <div class="wrap">
-    <div class="titulo">
+    <div class="titulo titulo-metodo">
       <h2 id="t-metodo">O método ARVIA</h2>
+      <dl class="sigla">
+        <div><dt><span aria-hidden="true">A</span>Analisar</dt><dd>Entender o seu objetivo, o seu prazo e o que cabe no seu mês antes de qualquer número.</dd></div>
+        <div><dt><span aria-hidden="true">R</span>Realizar</dt><dd>Transformar o plano em conquista: a carta certa, o lance planejado e o crédito no bem certo.</dd></div>
+        <div><dt><span aria-hidden="true">VIA</span>O caminho</dt><dd>O consórcio como a via entre o projeto de hoje e o patrimônio de amanhã.</dd></div>
+      </dl>
       <p>Quatro etapas, nessa ordem. Nenhum número é apresentado antes de eu entender o que você quer conquistar.</p>
     </div>
     <ol class="metodo">
@@ -529,14 +534,9 @@ legend .n{font-variant-numeric:lining-nums;font-size:28px;color:var(--ouro-tinta
 <section class="arvia" id="arvia" aria-labelledby="t-arvia">
   <div class="wrap">
     <div class="titulo">
-      <h2 id="t-arvia">Por que ARVIA</h2>
-      <p>O nome resume o jeito de trabalhar: analisar antes de propor, realizar com estratégia e mostrar o caminho entre o seu projeto e o seu patrimônio.</p>
+      <h2 id="t-arvia">Missão, visão e valores</h2>
+      <p>O que guia cada plano que eu monto, do diagnóstico até a última assembleia.</p>
     </div>
-    <dl class="nome">
-      <div><dt><span class="letra" aria-hidden="true">A</span>Analisar</dt><dd>Entender o seu objetivo, o seu prazo e o que cabe no seu mês antes de qualquer número.</dd></div>
-      <div><dt><span class="letra" aria-hidden="true">R</span>Realizar</dt><dd>Transformar o plano em conquista: a carta certa, o lance planejado e o crédito usado no bem certo.</dd></div>
-      <div><dt><span class="letra" aria-hidden="true">VIA</span>O caminho</dt><dd>O consórcio como a via entre o projeto de hoje e o patrimônio de amanhã, acompanhado mês a mês.</dd></div>
-    </dl>
     <div class="proposito">
       <div>
         <h3>Missão</h3>
@@ -630,7 +630,7 @@ legend .n{font-variant-numeric:lining-nums;font-size:28px;color:var(--ouro-tinta
         <li><a href="#simulador">Simulador</a></li>
         <li><a href="brasileiros-no-exterior/">Brasileiros no exterior</a></li>
         <li><a href="blog/">Blog</a></li>
-        <li><a href="#arvia">Por que ARVIA</a></li>
+        <li><a href="#arvia">Missão e valores</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#diagnostico">Diagnóstico gratuito</a></li>
       </ul></nav>
