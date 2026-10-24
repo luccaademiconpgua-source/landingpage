@@ -217,6 +217,34 @@ legend .n{font-variant-numeric:lining-nums;font-size:28px;color:var(--ouro-tinta
 .contato .btn-ouro{background:var(--ouro);color:var(--vinho)}
 .contato .btn-ouro:hover{background:var(--ouro-claro)}
 @media (max-width:760px){.contato .wrap{grid-template-columns:minmax(0,1fr);padding-block:64px}}
+
+/* Por que ARVIA: o nome desmontado em A, R e VIA, depois missão, visão e valores */
+.arvia{background:var(--vinho);color:#fff}
+.arvia .wrap{padding-block:96px}
+.arvia .titulo h2{color:#fff}
+.arvia .titulo p{color:rgba(255,255,255,.75)}
+.nome{display:grid;grid-template-columns:1fr 1fr 1.4fr;margin:0;border-top:1px solid rgba(255,255,255,.25)}
+.nome > div{padding:28px 32px 8px 0}
+.nome > div + div{padding-left:32px;border-left:1px solid rgba(255,255,255,.18)}
+.nome dt{font-size:15px;font-weight:600;color:#fff;display:grid;gap:6px}
+.nome .letra{font-family:var(--display);font-size:clamp(72px,9vw,128px);line-height:.85;font-weight:500;color:var(--ouro);letter-spacing:.02em}
+.nome dd{margin:10px 0 0;color:rgba(255,255,255,.72);font-size:14.5px;max-width:34ch}
+.proposito{display:grid;grid-template-columns:1fr 1fr;gap:32px 56px;margin-top:72px;padding-top:32px;border-top:1px solid rgba(255,255,255,.25)}
+.proposito h3,.valores-t{font-size:34px;color:var(--ouro-claro);margin:0 0 12px}
+.proposito p{margin:0;color:rgba(255,255,255,.85);font-family:var(--display);font-size:clamp(21px,2vw,25px);line-height:1.4;max-width:40ch}
+.valores-t{margin-top:64px}
+.valores{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.25)}
+.valores li{display:grid;grid-template-columns:minmax(140px,220px) minmax(0,1fr);gap:8px 32px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12);align-items:baseline}
+.valores b{font-family:var(--display);font-size:24px;font-weight:600;color:#fff}
+.valores span{color:rgba(255,255,255,.75);font-size:14.5px}
+@media (max-width:900px){
+  .nome{grid-template-columns:minmax(0,1fr)}
+  .nome > div,.nome > div + div{padding:24px 0 16px;border-left:0;border-top:1px solid rgba(255,255,255,.18)}
+  .nome > div:first-child{border-top:0}
+  .proposito{grid-template-columns:minmax(0,1fr);margin-top:48px}
+  .arvia .wrap{padding-block:64px}
+}
+@media (max-width:520px){.valores li{grid-template-columns:minmax(0,1fr);gap:2px}}
 </style>
 </head>
 <body>
@@ -498,6 +526,38 @@ legend .n{font-variant-numeric:lining-nums;font-size:28px;color:var(--ouro-tinta
   </div>
 </section>
 
+<section class="arvia" id="arvia" aria-labelledby="t-arvia">
+  <div class="wrap">
+    <div class="titulo">
+      <h2 id="t-arvia">Por que ARVIA</h2>
+      <p>O nome resume o jeito de trabalhar: analisar antes de propor, realizar com estratégia e mostrar o caminho entre o seu projeto e o seu patrimônio.</p>
+    </div>
+    <dl class="nome">
+      <div><dt><span class="letra" aria-hidden="true">A</span>Analisar</dt><dd>Entender o seu objetivo, o seu prazo e o que cabe no seu mês antes de qualquer número.</dd></div>
+      <div><dt><span class="letra" aria-hidden="true">R</span>Realizar</dt><dd>Transformar o plano em conquista: a carta certa, o lance planejado e o crédito usado no bem certo.</dd></div>
+      <div><dt><span class="letra" aria-hidden="true">VIA</span>O caminho</dt><dd>O consórcio como a via entre o projeto de hoje e o patrimônio de amanhã, acompanhado mês a mês.</dd></div>
+    </dl>
+    <div class="proposito">
+      <div>
+        <h3>Missão</h3>
+        <p>Ajudar pessoas e empresas a transformar projetos em patrimônio, usando o consórcio com estratégia, clareza nos números e acompanhamento até a conquista.</p>
+      </div>
+      <div>
+        <h3>Visão</h3>
+        <p>Ser referência em consultoria patrimonial com consórcio no Brasil e para brasileiros no exterior, reconhecida por planos que se cumprem e por clientes que voltam e indicam.</p>
+      </div>
+    </div>
+    <h3 class="valores-t">Valores</h3>
+    <ul class="valores">
+      <li><b>Clareza</b><span>Todo número é explicado antes de você decidir.</span></li>
+      <li><b>Planejamento</b><span>A estratégia vem antes do produto.</span></li>
+      <li><b>Presença</b><span>Acompanhamento em cada assembleia, não só na assinatura.</span></li>
+      <li><b>Ética</b><span>Nenhuma promessa de data de contemplação ou de rentabilidade garantida.</span></li>
+      <li><b>Longo prazo</b><span>A relação continua depois da carta contemplada.</span></li>
+    </ul>
+  </div>
+</section>
+
 <section class="bloco claro" id="sobre" aria-labelledby="t-sobre">
   <div class="wrap sobre">
     <figure class="retrato"><img src="img/lucca.jpg" alt="Lucca Antunes, consultor da ARVIA Capital" width="560" height="700" loading="lazy" decoding="async"></figure>
@@ -570,6 +630,7 @@ legend .n{font-variant-numeric:lining-nums;font-size:28px;color:var(--ouro-tinta
         <li><a href="#simulador">Simulador</a></li>
         <li><a href="brasileiros-no-exterior/">Brasileiros no exterior</a></li>
         <li><a href="blog/">Blog</a></li>
+        <li><a href="#arvia">Por que ARVIA</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#diagnostico">Diagnóstico gratuito</a></li>
       </ul></nav>
