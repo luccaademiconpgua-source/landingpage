@@ -98,6 +98,7 @@ def rodape(P, home=False):
         <li><a href="{'#simulador' if home else P + 'simulador/'}">Simulador</a></li>
         <li><a href="{P}brasileiros-no-exterior/">Brasileiros no exterior</a></li>
         <li><a href="{P}blog/">Blog</a></li>
+        <li><a href="{a('arvia')}">Missão e valores</a></li>
         <li><a href="{a('sobre')}">Sobre</a></li>
         <li><a href="{a('diagnostico')}">Diagnóstico gratuito</a></li>
       </ul></nav>
@@ -124,6 +125,18 @@ def rodape(P, home=False):
 </footer>"""
 
 
+def alt_imagem(titulo):
+    return f"{titulo.split(' | ')[0].split(' · ')[0]} · ARVIA Capital"
+
+
+def titulo_seo(titulo, limite=60):
+    """O Google corta títulos muito longos: sem espaço, mantém só o título da página, sem a marca."""
+    if len(titulo) <= limite:
+        return titulo
+    curto = re.split(r" \| | · ", titulo)[0]
+    return curto if len(curto) <= limite + 4 else curto[:limite].rsplit(" ", 1)[0]
+
+
 def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow, max-image-preview:large", imagem=None, extra_head=""):
     return f"""<!DOCTYPE html>
 <!-- © 2026 A&R Assessoria Estratégica Ltda. (ARVIA Capital). Todos os direitos reservados. Lei nº 9.609/1998 e Lei nº 9.610/1998. -->
@@ -131,17 +144,16 @@ def cabeca(titulo, descricao, url, ld, P, tipo="website", robots="index, follow,
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{ESC(titulo)}</title>
+<title>{ESC(titulo_seo(titulo))}</title>
 <meta name="description" content="{ESC(descricao)}">
 <link rel="canonical" href="{url}">
 <meta name="robots" content="{robots}">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="{P}assets/favicon.ico?v=2" sizes="any"><link rel="icon" type="image/svg+xml" href="{P}assets/favicon.svg?v=2"><link rel="icon" type="image/png" sizes="32x32" href="{P}assets/favicon-32.png?v=2"><link rel="apple-touch-icon" href="{P}assets/favicon-180.png?v=2">
 <meta property="og:type" content="{tipo}"><meta property="og:title" content="{ESC(titulo)}"><meta property="og:description" content="{ESC(descricao)}">
-<meta property="og:url" content="{url}"><meta property="og:image" content="{imagem or BASE + 'og.png'}"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="ARVIA Capital">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<meta property="og:url" content="{url}"><meta property="og:image" content="{imagem or BASE + 'og.jpg'}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{ESC(alt_imagem(titulo))}"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="ARVIA Capital">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{ESC(titulo)}"><meta name="twitter:description" content="{ESC(descricao)}"><meta name="twitter:image" content="{imagem or BASE + 'og.jpg'}">
+<link rel="preload" href="{P}assets/fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="{P}assets/fonts/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{P}assets/site.css?v={VERSAO}">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {extra_head}</head>
@@ -190,7 +202,7 @@ def cartoes(posts, P, nivel="h2"):
 def pagina_post(p, posts):
     caminho = f"blog/{p['slug']}/"
     url = BASE + caminho
-    imagem = f"{BASE}img/blog/{p['slug']}.jpg" if p.get("capa") else BASE + "og.png"
+    imagem = f"{BASE}img/blog/{p['slug']}.jpg" if p.get("capa") else BASE + "og.jpg"
     P = "../../"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BlogPosting", "headline": p["titulo"], "description": p["descricao"], "datePublished": p["data"], "dateModified": p.get("atualizado", p["data"]),
@@ -271,7 +283,7 @@ def pagina_exterior():
         {"@type": "WebPage", "name": "Consórcio para brasileiros no exterior", "url": BASE + "brasileiros-no-exterior/", "inLanguage": "pt-BR", "publisher": EMPRESA_LD},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in perguntas]},
         migalhas(("Início", ""), ("Brasileiros no exterior", "brasileiros-no-exterior/"))]}
-    return pagina("Consórcio para brasileiros no exterior · Imóvel no Brasil sem juros · ARVIA Capital",
+    return pagina("Consórcio para brasileiros no exterior | ARVIA Capital",
                   "Mora fora? Simule a parcela do consórcio em dólar, euro ou libra e compare com o financiamento. Imóvel no Brasil sem juros, com atendimento 100% online.",
                   "brasileiros-no-exterior/", ld, "exterior", conteudo,
                   extra_head=f"<style>{css}</style>\n", extra_fim=f"\n<script>{js}</script>")
@@ -328,10 +340,10 @@ def secao_blog(posts):
     return f"""<section class="bloco" id="blog" aria-labelledby="t-blog">
   <div class="wrap">
     <div class="blog-topo">
-      <div class="titulo"><div class="eyebrow">Do blog</div><h2 id="t-blog">Para decidir com informação</h2><p>Matérias curtas sobre consórcio, lance e planejamento patrimonial.</p></div>
+      <div class="titulo"><h2 id="t-blog">Para decidir com informação</h2><p>Matérias curtas sobre consórcio, lance e planejamento patrimonial.</p></div>
       <a class="btn btn-bordo" href="blog/">Ver todas as matérias</a>
     </div>
-    <div class="lista">{cartoes(posts[:3], "", "h3")}</div>
+    <div class="lista">{cartoes(posts[:3], "", "h3").replace("Ler matéria · ", "Leitura de ")}</div>
   </div>
 </section>"""
 

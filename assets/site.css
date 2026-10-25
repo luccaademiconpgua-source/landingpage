@@ -2,6 +2,13 @@
 /* Base compartilhada por todas as páginas: cores, tipografia, topo, botões, páginas internas, blog e rodapé.
    Identidade: vinho e ouro do manual ARVIA, Cormorant Garamond nos títulos e Montserrat no texto.
    A régua de assembleias (traços mensais) é o elemento de assinatura e aparece só na página inicial. */
+/* Fontes servidas pelo próprio site (sem depender do Google Fonts): carregam mais rápido */
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:600 700;font-display:swap;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/montserrat-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/montserrat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:600 700;font-display:swap;src:url(fonts/montserrat-latin-600-normal.woff2) format("woff2")}
 :root{
   --vinho:#25070D; --bordo:#4A0D18; --bordo-vivo:#7A1F2E;
   --ouro:#C6A04A; --ouro-claro:#E1C16A; --ouro-tinta:#86661F;
